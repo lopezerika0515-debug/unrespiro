@@ -24,7 +24,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Barra de Navegación y Menú Hamburguesa */
+        /* Barra de Navegación y Menú */
         nav {
             background-color: var(--blanco);
             padding: 15px 20px;
@@ -47,7 +47,7 @@
 
         .menu-links {
             display: flex;
-            gap: 20px;
+            gap: 24px;
         }
 
         .menu-links a {
@@ -68,27 +68,29 @@
             background: none;
             border: none;
             color: var(--primario);
+            padding: 0;
         }
 
-        /* Responsive Menú */
+        /* Estilos específicos para el menú hamburguesa en Celulares */
         @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
             .menu-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 60px;
+                top: 58px;
                 left: 0;
                 width: 100%;
                 background-color: var(--blanco);
                 padding: 20px;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.08);
                 box-sizing: border-box;
+                gap: 15px;
             }
             .menu-links.active {
                 display: flex;
-            }
-            .hamburger {
-                display: block;
             }
         }
 
@@ -117,7 +119,7 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         section {
@@ -125,7 +127,6 @@
             scroll-margin-top: 80px;
         }
 
-        /* Caja de contenido moderno */
         .info-box {
             background-color: var(--blanco);
             padding: 40px;
@@ -161,7 +162,7 @@
             margin-bottom: 30px;
         }
 
-        /* Tarjetas de Servicios */
+        /* Tarjetas de Servicios Corregidas */
         .servicios-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -186,13 +187,25 @@
         .tarjeta-header {
             padding: 30px 25px 10px 25px;
             text-align: center;
-            font-size: 1.3rem;
+        }
+
+        .tarjeta-header .icono {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .tarjeta-header h3 {
+            margin: 0;
+            color: var(--primario);
+            font-size: 1.4rem;
         }
 
         .tarjeta-body {
             padding: 0 25px 20px 25px;
             text-align: center;
             color: #555;
+            font-size: 0.95rem;
+            flex-grow: 1;
         }
 
         .tarjeta-footer {
@@ -203,15 +216,17 @@
         }
 
         .precio-tag {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: var(--primario);
+            margin-bottom: 2px;
         }
 
         .precio-local {
             font-size: 1rem;
             color: var(--secundario);
             margin-bottom: 15px;
+            font-weight: 500;
         }
 
         .btn-whatsapp {
@@ -243,18 +258,19 @@
             font-size: 0.9rem;
             color: var(--secundario);
             background-color: #f4ede4;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Menú de Navegación Superior -->
+    <!-- Barra de Navegación -->
     <nav>
-        <div class="logo">🌬️ Un Respiro</div>
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="logo">To Un Respiro</div>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menú">☰</button>
         <div class="menu-links" id="navLinks">
-            <a href="#inicio" onclick="toggleMenu()">Inicio</a>
-            <a href="#proposito">Nuestro Propósito</a>
+            <a href="#inicio">Inicio</a>
+            <a href="#proposito">Propósito</a>
             <a href="#sobremi">Sobre Mí</a>
             <a href="#servicios">Servicios</a>
         </div>
@@ -268,43 +284,37 @@
 
     <div class="container">
         
-        <!-- Sección 1: Propósito de la Empresa -->
+        <!-- Sección Propósito -->
         <section id="proposito">
             <div class="info-box split-section">
                 <div class="split-text">
-                    <h2>Finalidad de Un Respiro</h2>
-                    <p>Este proyecto nació con un objetivo claro: <strong>combatir la soledad y el agobio emocional en el mundo digital</strong>. Sabemos que hoy en día es fácil tener cientos de seguidores, pero es difícil tener a alguien con quien hablar con total honestidad.</p>
-                    <p>Nuestra finalidad es brindarte un espacio libre de críticas donde puedas liberar tensiones, ordenar tus pensamientos y encontrar un oído amigo disponible exclusivamente para ti.</p>
+                    <h2>Finalidad de la Empresa</h2>
+                    <p>Este proyecto nació con un objetivo claro: <strong>combatir la soledad y el agobio emocional en el mundo digital</strong>. Sabemos que hoy en día es fácil tener cientos de conocidos en redes, pero es muy difícil encontrar a alguien con quien hablar con total honestidad.</p>
+                    <p>Nuestra finalidad es brindarte un espacio libre de críticas donde puedas liberar tus cargas cotidianas, ordenar tus pensamientos y encontrar un oído atento disponible exclusivamente para ti.</p>
                 </div>
                 <div class="split-img">
-                    <img src="https://unsplash.com" alt="Conversación tranquila">
+                    <img src="https://unsplash.com" alt="Espacio de conversación">
                 </div>
             </div>
         </section>
 
-        <!-- Sección 2: Sobre Mí -->
+        <!-- Sección Sobre Mí -->
         <section id="sobremi">
             <div class="info-box split-section" style="border-left-color: var(--primario);">
                 <div class="split-img">
-                    <img src="https://unsplash.com" alt="Conexión y amistad">
+                    <img src="https://unsplash.com" alt="Conexión empática">
                 </div>
                 <div class="split-text">
-                    <h2>Hola, estoy aquí para escucharte</h2>
-                    <p>No busco ser tu psicólogo ni darte soluciones mágicas. Mi gran talento y vocación es **saber escuchar de verdad**. Tengo una enorme capacidad para conectar de forma empática con los demás, acompañarte en tus momentos de desvelo y charlar como lo harías con un buen amigo.</p>
-                    <p>Si necesitas desahogarte por texto, reírte un rato, hablar de tu día o simplemente hacer un nuevo amigo virtual que no te juzgue, estás en el lugar correcto.</p>
+                    <h2>Quién soy y mi capacidad de escucha</h2>
+                    <p>No busco darte lecciones de vida ni soluciones médicas. Mi gran vocación es **saber escuchar de verdad**. Tengo una enorme capacidad para conectar de forma empática con las personas, acompañarte en tus días difíciles y charlar con la misma confianza que lo harías con un gran amigo.</p>
+                    <p>Si necesitas desahogarte por escrito de forma anónima, hablar de cómo estuvo tu jornada, reír un rato o simplemente hacer un nuevo amigo virtual dispuesto a comprenderte, estoy aquí para ti.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Sección 3: Servicios -->
+        <!-- Sección Servicios (Información Única por Casilla) -->
         <section id="servicios">
-            <h2>Elige cómo deseas conectar</h2>
+            <h2 style="text-align: center;">Elige cómo deseas conectar</h2>
             <div class="servicios-grid">
                 
-                <!-- Chat -->
-                <div class="tarjeta-premium">
-                    <div class="tarjeta-header">💬 <h3>Por Chat</h3></div>
-                    <div class="tarjeta-body"><p>Escribe de forma tranquila, pausada y a tu ritmo para chatear y conocernos.</p></div>
-                    <div class="tarjeta-footer">
-                        <div class="precio-tag">$10 USD / ó $30.000 COP</div>
-                        <div class="precio-local">Plan Semanal</div>
+                <!-- Casilla 1: Chat -->
