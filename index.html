@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Respiro - Escucha Empática y Acompañamiento</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f5f0; 
+            color: #333d29; 
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #d8e2dc; 
+            text-align: center;
+            padding: 60px 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            color: #4a5759;
+            font-weight: 400;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #6b7a7d;
+            font-style: italic;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .intro {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        h2 {
+            color: #4a5759;
+            border-bottom: 2px solid #d8e2dc;
+            padding-bottom: 10px;
+        }
+        .servicios {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media(min-width: 600px) {
+            .servicios { grid-template-columns: 1fr 1fr 1fr; }
+        }
+        .tarjeta {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid #b5c99a;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .tarjeta h3 {
+            margin-top: 0;
+            color: #4a5759;
+        }
+        .precio {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #718355;
+            margin: 15px 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #25D366; 
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #128C7E;
+        }
+        .aviso-legal {
+            background-color: #eae7dc;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #7e7f83;
+            margin-top: 50px;
+            border-left: 4px solid #e07a5f;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: #8a9a86;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌬️ Un Respiro</h1>
+        <p>Un espacio seguro para soltar lo que llevas dentro</p>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <p>Hola, te doy la bienvenida. A veces la vida se vuelve muy ruidosa, los problemas se acumulan y solo necesitamos detenernos. Muchas veces no buscamos consejos, ni queremos sentirnos juzgados; solo necesitamos que alguien nos escuche de verdad.</p>
+            <p>Aquí encuentras <strong>Un Respiro</strong>. Un lugar confidencial, libre de críticas, donde puedes desahogarte a tu propio ritmo y con total tranquilidad.</p>
+        </div>
+
+        <h2>Nuestras Modalidades de Apoyo</h2>
+        <div class="servicios">
+            <div class="tarjeta">
+                <div>
+                    <h3>💬 Por Chat</h3>
+                    <p>Para escribir de forma tranquila, pausada y a tu propio tiempo.</p>
+                </div>
+                <div>
+                    <div class="precio">$10 USD / sem</div>
+                    <a href="https://wa.me" target="_blank" class="btn">Consultar Disponibilidad</a>
+                </div>
+            </div>
+            <div class="tarjeta">
+                <div>
+                    <h3>📞 Por Voz</h3>
+                    <p>Una llamada para hablar con total libertad y sentir una compañía directa.</p>
+                </div>
+                <div>
+                    <div class="precio">$10 USD / 30min</div>
+                    <a href="https://wa.me" target="_blank" class="btn">Consultar Disponibilidad</a>
+                </div>
+            </div>
+            <div class="tarjeta">
+                <div>
+                    <h3>🎥 Cara a Cara</h3>
+                    <p>Una videollamada para conectar de forma más cercana, humana y profunda.</p>
+                </div>
+                <div>
+                    <div class="precio">$15 USD / 45min</div>
+                    <a href="https://wa.me" target="_blank" class="btn">Consultar Disponibilidad</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="aviso-legal">
+            <strong>Nota importante:</strong> Este es un servicio de escucha empática, acompañamiento humano y desahogo emocional. No soy psicóloga, terapeuta ni profesional de la salud mental. Este espacio no sustituye una terapia médica o psicológica. Si estás pasando por una crisis severa o una emergencia, te pido que acudas a los servicios de salud oficiales de tu país.
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Un Respiro - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
