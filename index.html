@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un Respiro - Escucha Empática y Apoyo Emocional</title>
+    <title>Un Respiro - Escucha Empática y Acompañamiento</title>
     <style>
         :root {
             --fondo: #fbf9f6;
@@ -21,30 +21,97 @@
             margin: 0;
             padding: 0;
             line-height: 1.7;
+            scroll-behavior: smooth;
         }
 
-        /* Banner Principal con Imagen de Fondo */
+        /* Barra de Navegación y Menú Hamburguesa */
+        nav {
+            background-color: var(--blanco);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--primario);
+        }
+
+        .menu-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu-links a {
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .menu-links a:hover {
+            color: var(--primario);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--primario);
+        }
+
+        /* Responsive Menú */
+        @media (max-width: 768px) {
+            .menu-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--blanco);
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                box-sizing: border-box;
+            }
+            .menu-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* Banner Principal */
         .hero {
-            background: linear-gradient(rgba(74, 93, 78, 0.75), rgba(74, 93, 78, 0.85)), 
+            background: linear-gradient(rgba(74, 93, 78, 0.7), rgba(74, 93, 78, 0.8)), 
                         url('https://unsplash.com') no-repeat center center/cover;
             color: var(--blanco);
             text-align: center;
-            padding: 100px 20px;
+            padding: 140px 20px 100px 20px;
         }
 
         .hero h1 {
             margin: 0;
             font-size: 3.5rem;
             font-weight: 300;
-            letter-spacing: 2px;
         }
 
         .hero p {
             font-size: 1.3rem;
-            opacity: 0.9;
-            font-style: italic;
             max-width: 600px;
             margin: 20px auto 0 auto;
+            font-style: italic;
         }
 
         .container {
@@ -53,31 +120,45 @@
             padding: 60px 20px;
         }
 
-        /* Sección Introducción */
-        .intro-box {
+        section {
+            padding: 40px 0;
+            scroll-margin-top: 80px;
+        }
+
+        /* Caja de contenido moderno */
+        .info-box {
             background-color: var(--blanco);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            margin-bottom: 40px;
             border-left: 5px solid var(--secundario);
         }
 
-        .intro-box p {
-            font-size: 1.15rem;
-            margin-bottom: 20px;
+        .split-section {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
         }
 
-        .intro-box p:last-child {
-            margin-bottom: 0;
+        @media(min-width: 768px) {
+            .split-section { flex-direction: row; }
+            .split-text { width: 60%; }
+            .split-img { width: 40%; }
+        }
+
+        .split-img img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         h2 {
-            text-align: center;
             color: var(--primario);
             font-size: 2rem;
-            margin-bottom: 40px;
             font-weight: 400;
+            margin-bottom: 30px;
         }
 
         /* Tarjetas de Servicios */
@@ -85,54 +166,33 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
-            margin-bottom: 60px;
         }
 
         @media(min-width: 768px) {
-            .servicios-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
+            .servicios-grid { grid-template-columns: 1fr 1fr 1fr; }
         }
 
         .tarjeta-premium {
             background-color: var(--blanco);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             border: 1px solid #f0ede9;
         }
 
-        .tarjeta-premium:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-        }
-
         .tarjeta-header {
             padding: 30px 25px 10px 25px;
             text-align: center;
-        }
-
-        .tarjeta-header .icono {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .tarjeta-header h3 {
-            margin: 0;
-            color: var(--primario);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
 
         .tarjeta-body {
             padding: 0 25px 20px 25px;
             text-align: center;
-            font-size: 1rem;
             color: #555;
-            flex-grow: 1;
         }
 
         .tarjeta-footer {
@@ -143,9 +203,14 @@
         }
 
         .precio-tag {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: var(--primario);
+        }
+
+        .precio-local {
+            font-size: 1rem;
+            color: var(--secundario);
             margin-bottom: 15px;
         }
 
@@ -157,38 +222,11 @@
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 0.95rem;
             transition: background 0.3s;
         }
 
-        .btn-whatsapp:hover {
-            background-color: var(--secundario);
-        }
+        .btn-whatsapp:hover { background-color: var(--secundario); }
 
-        /* Sección Preguntas Frecuentes */
-        .faq-section {
-            background-color: var(--blanco);
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            margin-bottom: 60px;
-        }
-
-        .faq-item {
-            margin-bottom: 25px;
-        }
-
-        .faq-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .faq-item h4 {
-            margin: 0 0 8px 0;
-            color: var(--primario);
-            font-size: 1.15rem;
-        }
-
-        /* Aviso de Responsabilidad */
         .disclaimer {
             background-color: #fef3c7;
             border-left: 4px solid var(--alerta);
@@ -196,6 +234,7 @@
             border-radius: 12px;
             font-size: 0.95rem;
             color: #92400e;
+            margin-top: 40px;
         }
 
         footer {
@@ -203,92 +242,69 @@
             padding: 40px 20px;
             font-size: 0.9rem;
             color: var(--secundario);
-            border-top: 1px solid #eaddcf;
             background-color: #f4ede4;
         }
     </style>
 </head>
 <body>
 
+    <!-- Menú de Navegación Superior -->
+    <nav>
+        <div class="logo">🌬️ Un Respiro</div>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="menu-links" id="navLinks">
+            <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+            <a href="#proposito">Nuestro Propósito</a>
+            <a href="#sobremi">Sobre Mí</a>
+            <a href="#servicios">Servicios</a>
+        </div>
+    </nav>
+
     <!-- Banner Principal -->
-    <div class="hero">
-        <h1>🌬️ Un Respiro</h1>
-        <p>Un espacio seguro y confidencial para soltar lo que llevas dentro.</p>
+    <div class="hero" id="inicio">
+        <h1>Un Respiro</h1>
+        <p>Tu espacio seguro en internet para hablar, desahogarte y ser escuchado.</p>
     </div>
 
     <div class="container">
-        <!-- Bloque de Bienvenida -->
-        <div class="intro-box">
-            <p>Hola, te doy la bienvenida. A veces la vida se vuelve muy ruidosa, las responsabilidades abruman y los problemas se acumulan en silencio. Muchas veces no buscamos un psicólogo, ni queremos que nos den consejos que no pedimos. Solo necesitamos a alguien que nos escuche con atención, respeto y total empatía.</p>
-            <p>Aquí encuentras <strong>Un Respiro</strong>. Un rincón en internet completamente libre de juicios o críticas, diseñado para que puedas desahogarte a tu propio ritmo.</p>
-        </div>
-
-        <h2>Elige cómo deseas desahogarte</h2>
         
-        <!-- Rejilla de Servicios -->
-        <div class="servicios-grid">
-            
-            <!-- Chat -->
-            <div class="tarjeta-premium">
-                <div class="tarjeta-header">
-                    <div class="icono">💬</div>
-                    <h3>Por Chat</h3>
+        <!-- Sección 1: Propósito de la Empresa -->
+        <section id="proposito">
+            <div class="info-box split-section">
+                <div class="split-text">
+                    <h2>Finalidad de Un Respiro</h2>
+                    <p>Este proyecto nació con un objetivo claro: <strong>combatir la soledad y el agobio emocional en el mundo digital</strong>. Sabemos que hoy en día es fácil tener cientos de seguidores, pero es difícil tener a alguien con quien hablar con total honestidad.</p>
+                    <p>Nuestra finalidad es brindarte un espacio libre de críticas donde puedas liberar tensiones, ordenar tus pensamientos y encontrar un oído amigo disponible exclusivamente para ti.</p>
                 </div>
-                <div class="tarjeta-body">
-                    <p>Ideal si prefieres escribir de forma tranquila, pausada y reflexiva desde la comodidad de tu celular.</p>
-                </div>
-                <div class="tarjeta-footer">
-                    <div class="precio-tag">$10 USD <span style="font-size: 0.9rem; font-weight: normal; color:#777;">/ sem</span></div>
-                    <a href="https://wa.me" target="_blank" class="btn-whatsapp">Apartar Espacio</a>
+                <div class="split-img">
+                    <img src="https://unsplash.com" alt="Conversación tranquila">
                 </div>
             </div>
+        </section>
 
-            <!-- Voz -->
-            <div class="tarjeta-premium">
-                <div class="tarjeta-header">
-                    <div class="icono">📞</div>
-                    <h3>Por Voz</h3>
+        <!-- Sección 2: Sobre Mí -->
+        <section id="sobremi">
+            <div class="info-box split-section" style="border-left-color: var(--primario);">
+                <div class="split-img">
+                    <img src="https://unsplash.com" alt="Conexión y amistad">
                 </div>
-                <div class="tarjeta-body">
-                    <p>Una llamada tradicional para hablar con total libertad, llorar, reír o soltar tensiones sintiendo una compañía directa.</p>
-                </div>
-                <div class="tarjeta-footer">
-                    <div class="precio-tag">$10 USD <span style="font-size: 0.9rem; font-weight: normal; color:#777;">/ 30min</span></div>
-                    <a href="https://wa.me" target="_blank" class="btn-whatsapp">Apartar Espacio</a>
+                <div class="split-text">
+                    <h2>Hola, estoy aquí para escucharte</h2>
+                    <p>No busco ser tu psicólogo ni darte soluciones mágicas. Mi gran talento y vocación es **saber escuchar de verdad**. Tengo una enorme capacidad para conectar de forma empática con los demás, acompañarte en tus momentos de desvelo y charlar como lo harías con un buen amigo.</p>
+                    <p>Si necesitas desahogarte por texto, reírte un rato, hablar de tu día o simplemente hacer un nuevo amigo virtual que no te juzgue, estás en el lugar correcto.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Videollamada -->
-            <div class="tarjeta-premium">
-                <div class="tarjeta-header">
-                    <div class="icono">🎥</div>
-                    <h3>Cara a Cara</h3>
-                </div>
-                <div class="tarjeta-body">
-                    <p>Una videollamada privada para una conexión mucho más humana, profunda y cercana en los momentos difíciles.</p>
-                </div>
-                <div class="tarjeta-footer">
-                    <div class="precio-tag">$15 USD <span style="font-size: 0.9rem; font-weight: normal; color:#777;">/ 45min</span></div>
-                    <a href="https://wa.me" target="_blank" class="btn-whatsapp">Apartar Espacio</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Sección de Preguntas Frecuentes -->
-        <div class="faq-section">
-            <h2>Preguntas Frecuentes</h2>
-            
-            <div class="faq-item">
-                <h4>¿Mi identidad y lo que hablemos es privado?</h4>
-                <p>Absolutamente. Todo lo que hablemos o escribas es 100% confidencial. No juzgo, no comparto información y puedes usar un pseudónimo si te hace sentir más cómodo.</p>
-            </div>
-            
-            <div class="faq-item">
-                <h4>¿Cómo se realiza el pago?</h4>
-                <p>Una vez que coordinemos el horario por WhatsApp, te enviaré un enlace seguro de PayPal para que puedas realizar tu pago fácilmente desde cualquier país.</p>
-            </div>
-        </div>
-
-        <!-- Descargo de Responsabilidad -->
-        <div class="disclaimer">
+        <!-- Sección 3: Servicios -->
+        <section id="servicios">
+            <h2>Elige cómo deseas conectar</h2>
+            <div class="servicios-grid">
+                
+                <!-- Chat -->
+                <div class="tarjeta-premium">
+                    <div class="tarjeta-header">💬 <h3>Por Chat</h3></div>
+                    <div class="tarjeta-body"><p>Escribe de forma tranquila, pausada y a tu ritmo para chatear y conocernos.</p></div>
+                    <div class="tarjeta-footer">
+                        <div class="precio-tag">$10 USD / ó $30.000 COP</div>
+                        <div class="precio-local">Plan Semanal</div>
