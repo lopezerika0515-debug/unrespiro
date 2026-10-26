@@ -24,7 +24,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Barra de Navegación y Menú */
+        /* Barra de Navegación */
         nav {
             background-color: var(--blanco);
             padding: 15px 20px;
@@ -43,6 +43,9 @@
             font-size: 1.4rem;
             font-weight: bold;
             color: var(--primario);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .menu-links {
@@ -71,7 +74,7 @@
             padding: 0;
         }
 
-        /* Estilos específicos para el menú hamburguesa en Celulares */
+        /* Responsive Menú Hamburguesa en Celulares */
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
@@ -94,19 +97,22 @@
             }
         }
 
-        /* Banner Principal */
+        /* Banner Principal con Fondo de Ilustración Calma */
         .hero {
-            background: linear-gradient(rgba(74, 93, 78, 0.7), rgba(74, 93, 78, 0.8)), 
-                        url('https://unsplash.com') no-repeat center center/cover;
-            color: var(--blanco);
+            background-color: #e3ebe6;
+            background-image: radial-gradient(var(--secundario) 0.5px, #e3ebe6 0.5px);
+            background-size: 10px 10px;
+            color: var(--primario);
             text-align: center;
             padding: 140px 20px 100px 20px;
+            border-bottom: 1px solid #d4ded8;
         }
 
         .hero h1 {
             margin: 0;
             font-size: 3.5rem;
-            font-weight: 300;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
 
         .hero p {
@@ -114,6 +120,7 @@
             max-width: 600px;
             margin: 20px auto 0 auto;
             font-style: italic;
+            color: #5d7362;
         }
 
         .container {
@@ -139,20 +146,22 @@
         .split-section {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 40px;
             align-items: center;
         }
 
         @media(min-width: 768px) {
             .split-section { flex-direction: row; }
             .split-text { width: 60%; }
-            .split-img { width: 40%; }
+            .split-img { width: 40%; text-align: center; }
         }
 
-        .split-img img {
+        /* Contenedor de Gráficos SVG */
+        .svg-container {
             width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            max-width: 250px;
+            height: auto;
+            display: inline-block;
         }
 
         h2 {
@@ -162,7 +171,7 @@
             margin-bottom: 30px;
         }
 
-        /* Tarjetas de Servicios Corregidas */
+        /* Tarjetas de Servicios */
         .servicios-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -266,7 +275,7 @@
 
     <!-- Barra de Navegación -->
     <nav>
-        <div class="logo">To Un Respiro</div>
+        <div class="logo">🌬️ Un Respiro</div>
         <button class="hamburger" id="hamburgerBtn" aria-label="Menú">☰</button>
         <div class="menu-links" id="navLinks">
             <a href="#inicio">Inicio</a>
@@ -293,7 +302,16 @@
                     <p>Nuestra finalidad es brindarte un espacio libre de críticas donde puedas liberar tus cargas cotidianas, ordenar tus pensamientos y encontrar un oído atento disponible exclusivamente para ti.</p>
                 </div>
                 <div class="split-img">
-                    <img src="https://unsplash.com" alt="Espacio de conversación">
+                    <!-- Ilustración Vectorial Integrada - Taza de Café / Relajación -->
+                    <svg class="svg-container" viewBox="0 0 200 200" xmlns="http://w3.org">
+                        <circle cx="100" cy="100" r="80" fill="#e3ebe6" />
+                        <path d="M70,130 L130,130 A5,5 0 0,0 135,125 L135,100 L65,100 L65,125 A5,5 0 0,0 70,130 Z" fill="#4a5d4e" />
+                        <path d="M135,105 C145,105 145,120 135,120" stroke="#4a5d4e" stroke-width="5" fill="none" />
+                        <path d="M85,90 C85,80 90,80 90,70" stroke="#8a9a86" stroke-width="3" stroke-linecap="round" fill="none" />
+                        <path d="M100,90 C100,80 105,80 105,70" stroke="#8a9a86" stroke-width="3" stroke-linecap="round" fill="none" />
+                        <path d="M115,90 C115,80 120,80 120,70" stroke="#8a9a86" stroke-width="3" stroke-linecap="round" fill="none" />
+                        <rect x="55" y="130" width="90" height="6" rx="3" fill="#8a9a86" />
+                    </svg>
                 </div>
             </div>
         </section>
@@ -302,19 +320,4 @@
         <section id="sobremi">
             <div class="info-box split-section" style="border-left-color: var(--primario);">
                 <div class="split-img">
-                    <img src="https://unsplash.com" alt="Conexión empática">
-                </div>
-                <div class="split-text">
-                    <h2>Quién soy y mi capacidad de escucha</h2>
-                    <p>No busco darte lecciones de vida ni soluciones médicas. Mi gran vocación es **saber escuchar de verdad**. Tengo una enorme capacidad para conectar de forma empática con las personas, acompañarte en tus días difíciles y charlar con la misma confianza que lo harías con un gran amigo.</p>
-                    <p>Si necesitas desahogarte por escrito de forma anónima, hablar de cómo estuvo tu jornada, reír un rato o simplemente hacer un nuevo amigo virtual dispuesto a comprenderte, estoy aquí para ti.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección Servicios (Información Única por Casilla) -->
-        <section id="servicios">
-            <h2 style="text-align: center;">Elige cómo deseas conectar</h2>
-            <div class="servicios-grid">
-                
-                <!-- Casilla 1: Chat -->
+                    <!-- Ilustración Vectorial Integrada - Dos personas conectando -->
