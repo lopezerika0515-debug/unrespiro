@@ -24,10 +24,9 @@
             scroll-behavior: smooth;
         }
 
-        /* Barra de Navegación Fija */
+        /* Barra de Navegación */
         nav {
             background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
@@ -72,9 +71,11 @@
             padding: 0;
         }
 
-        /* Menú Móvil */
+        /* Menú Celulares */
         @media (max-width: 768px) {
-            .hamburger { display: block; }
+            .hamburger {
+                display: block;
+            }
             .menu-links {
                 display: none;
                 flex-direction: column;
@@ -88,13 +89,15 @@
                 box-sizing: border-box;
                 gap: 15px;
             }
-            .menu-links.active { display: flex; }
+            .menu-links.active {
+                display: flex;
+            }
         }
 
-        /* PORTADA PRINCIPAL CON IMAGEN REAL */
+        /* Portada Principal */
         .hero {
-            background: linear-gradient(rgba(74, 93, 78, 0.65), rgba(74, 93, 78, 0.75)), 
-                        url('https://unsplash.com') no-repeat center center/cover;
+            background: linear-gradient(rgba(74, 93, 78, 0.6), rgba(74, 93, 78, 0.7)), 
+                        url('https://wikimedia.org') no-repeat center center/cover;
             color: var(--blanco);
             text-align: center;
             padding: 160px 20px 120px 20px;
@@ -105,7 +108,6 @@
             font-size: 3.5rem;
             font-weight: 400;
             letter-spacing: 2px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .hero p {
@@ -113,7 +115,6 @@
             max-width: 600px;
             margin: 20px auto 0 auto;
             font-style: italic;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
         .container {
@@ -127,7 +128,7 @@
             scroll-margin-top: 80px;
         }
 
-        /* Bloques de Información con Imágenes Laterales */
+        /* Bloques con imágenes laterales */
         .info-box {
             background-color: var(--blanco);
             padding: 40px;
@@ -145,9 +146,15 @@
         }
 
         @media(min-width: 768px) {
-            .split-section { flex-direction: row; }
-            .split-text { width: 55%; }
-            .split-img { width: 45%; }
+            .split-section {
+                flex-direction: row;
+            }
+            .split-text {
+                width: 55%;
+            }
+            .split-img {
+                width: 45%;
+            }
         }
 
         .split-img img {
@@ -166,15 +173,18 @@
             margin-bottom: 25px;
         }
 
-        /* Rejilla de Servicios */
+        /* Rejilla de Servicios y Tarjetas */
         .servicios-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 30px;
+            margin-top: 20px;
         }
 
         @media(min-width: 768px) {
-            .servicios-grid { grid-template-columns: 1fr 1fr 1fr; }
+            .servicios-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
         }
 
         .tarjeta-premium {
@@ -186,11 +196,6 @@
             flex-direction: column;
             justify-content: space-between;
             border: 1px solid #f0ede9;
-            transition: transform 0.3s ease;
-        }
-
-        .tarjeta-premium:hover {
-            transform: translateY(-5px);
         }
 
         .tarjeta-header {
@@ -228,6 +233,7 @@
             font-size: 1.4rem;
             font-weight: bold;
             color: var(--primario);
+            margin-bottom: 2px;
         }
 
         .precio-local {
@@ -248,7 +254,9 @@
             transition: background 0.3s;
         }
 
-        .btn-whatsapp:hover { background-color: var(--secundario); }
+        .btn-whatsapp:hover {
+            background-color: var(--secundario);
+        }
 
         .disclaimer {
             background-color: #fef3c7;
@@ -287,12 +295,12 @@
     <!-- Banner Principal -->
     <div class="hero" id="inicio">
         <h1>Un Respiro</h1>
-        <p>Tu espacio seguro en internet para hablar, desahogarte y ser escuchado en tu propio idioma.</p>
+        <p>Tu espacio seguro en internet para hablar, desahogarte y ser escuchado por un amigo virtual.</p>
     </div>
 
     <div class="container">
         
-        <!-- Sección Propósito con Imagen de Charla Real -->
+        <!-- Sección Propósito -->
         <section id="proposito">
             <div class="info-box split-section">
                 <div class="split-text">
@@ -301,17 +309,22 @@
                     <p>Nuestra finalidad es brindarte un espacio libre de críticas donde puedas liberar tus cargas cotidianas, ordenar tus pensamientos y encontrar un oído atento disponible exclusivamente para ti.</p>
                 </div>
                 <div class="split-img">
-                    <img src="https://unsplash.com" alt="Personas conversando en un café">
+                    <img src="https://wikimedia.org" alt="Personas conversando">
                 </div>
             </div>
         </section>
 
-        <!-- Sección Sobre Mí con Imagen de Apoyo Real -->
+        <!-- Sección Sobre Mí -->
         <section id="sobremi">
             <div class="info-box split-section">
                 <div class="split-img">
-                    <img src="https://unsplash.com" alt="Persona escribiendo en una libreta en ambiente tranquilo">
+                    <img src="https://wikimedia.org" alt="Persona escribiendo en una libreta">
                 </div>
                 <div class="split-text">
                     <h2>Quién soy y mi capacidad de escucha</h2>
                     <p>No busco darte lecciones de vida ni soluciones médicas. Mi gran vocación es **saber escuchar de verdad**. Tengo una enorme capacidad para conectar de forma empática con las personas, acompañarte en tus días difíciles y charlar con la misma confianza que lo harías con un gran amigo.</p>
+                    <p>Si necesitas desahogarte por escrito de forma anónima, hablar de cómo estuvo tu jornada, reír un rato o simplemente hacer un nuevo amigo virtual dispuesto a comprenderte, estoy aquí para ti.</p>
+                </div>
+            </div>
+        </section>
+
