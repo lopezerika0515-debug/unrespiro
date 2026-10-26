@@ -24,9 +24,10 @@
             scroll-behavior: smooth;
         }
 
-        /* Barra de Navegación */
+        /* Barra de Navegación Fija */
         nav {
-            background-color: var(--blanco);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px 20px;
             display: flex;
             justify-content: space-between;
@@ -43,9 +44,6 @@
             font-size: 1.4rem;
             font-weight: bold;
             color: var(--primario);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .menu-links {
@@ -74,11 +72,9 @@
             padding: 0;
         }
 
-        /* Responsive Menú Hamburguesa en Celulares */
+        /* Menú Móvil */
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
+            .hamburger { display: block; }
             .menu-links {
                 display: none;
                 flex-direction: column;
@@ -92,55 +88,53 @@
                 box-sizing: border-box;
                 gap: 15px;
             }
-            .menu-links.active {
-                display: flex;
-            }
+            .menu-links.active { display: flex; }
         }
 
-        /* Banner Principal con Fondo de Ilustración Calma */
+        /* PORTADA PRINCIPAL CON IMAGEN REAL */
         .hero {
-            background-color: #e3ebe6;
-            background-image: radial-gradient(var(--secundario) 0.5px, #e3ebe6 0.5px);
-            background-size: 10px 10px;
-            color: var(--primario);
+            background: linear-gradient(rgba(74, 93, 78, 0.65), rgba(74, 93, 78, 0.75)), 
+                        url('https://unsplash.com') no-repeat center center/cover;
+            color: var(--blanco);
             text-align: center;
-            padding: 140px 20px 100px 20px;
-            border-bottom: 1px solid #d4ded8;
+            padding: 160px 20px 120px 20px;
         }
 
         .hero h1 {
             margin: 0;
             font-size: 3.5rem;
             font-weight: 400;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             max-width: 600px;
             margin: 20px auto 0 auto;
             font-style: italic;
-            color: #5d7362;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
         section {
-            padding: 40px 0;
+            padding: 50px 0;
             scroll-margin-top: 80px;
         }
 
+        /* Bloques de Información con Imágenes Laterales */
         .info-box {
             background-color: var(--blanco);
             padding: 40px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             margin-bottom: 40px;
-            border-left: 5px solid var(--secundario);
+            border-top: 4px solid var(--secundario);
         }
 
         .split-section {
@@ -152,26 +146,27 @@
 
         @media(min-width: 768px) {
             .split-section { flex-direction: row; }
-            .split-text { width: 60%; }
-            .split-img { width: 40%; text-align: center; }
+            .split-text { width: 55%; }
+            .split-img { width: 45%; }
         }
 
-        /* Contenedor de Gráficos SVG */
-        .svg-container {
+        .split-img img {
             width: 100%;
-            max-width: 250px;
-            height: auto;
-            display: inline-block;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
         }
 
         h2 {
             color: var(--primario);
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 400;
-            margin-bottom: 30px;
+            margin-top: 0;
+            margin-bottom: 25px;
         }
 
-        /* Tarjetas de Servicios */
+        /* Rejilla de Servicios */
         .servicios-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -191,6 +186,11 @@
             flex-direction: column;
             justify-content: space-between;
             border: 1px solid #f0ede9;
+            transition: transform 0.3s ease;
+        }
+
+        .tarjeta-premium:hover {
+            transform: translateY(-5px);
         }
 
         .tarjeta-header {
@@ -213,7 +213,7 @@
             padding: 0 25px 20px 25px;
             text-align: center;
             color: #555;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             flex-grow: 1;
         }
 
@@ -225,17 +225,16 @@
         }
 
         .precio-tag {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: bold;
             color: var(--primario);
-            margin-bottom: 2px;
         }
 
         .precio-local {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--secundario);
             margin-bottom: 15px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .btn-whatsapp {
@@ -288,12 +287,12 @@
     <!-- Banner Principal -->
     <div class="hero" id="inicio">
         <h1>Un Respiro</h1>
-        <p>Tu espacio seguro en internet para hablar, desahogarte y ser escuchado.</p>
+        <p>Tu espacio seguro en internet para hablar, desahogarte y ser escuchado en tu propio idioma.</p>
     </div>
 
     <div class="container">
         
-        <!-- Sección Propósito -->
+        <!-- Sección Propósito con Imagen de Charla Real -->
         <section id="proposito">
             <div class="info-box split-section">
                 <div class="split-text">
@@ -302,22 +301,17 @@
                     <p>Nuestra finalidad es brindarte un espacio libre de críticas donde puedas liberar tus cargas cotidianas, ordenar tus pensamientos y encontrar un oído atento disponible exclusivamente para ti.</p>
                 </div>
                 <div class="split-img">
-                    <!-- Ilustración Vectorial Integrada - Taza de Café / Relajación -->
-                    <svg class="svg-container" viewBox="0 0 200 200" xmlns="http://w3.org">
-                        <circle cx="100" cy="100" r="80" fill="#e3ebe6" />
-                        <path d="M70,130 L130,130 A5,5 0 0,0 135,125 L135,100 L65,100 L65,125 A5,5 0 0,0 70,130 Z" fill="#4a5d4e" />
-                        <path d="M135,105 C145,105 145,120 135,120" stroke="#4a5d4e" stroke-width="5" fill="none" />
-                        <path d="M85,90 C85,80 90,80 90,70" stroke="#8a9a86" stroke-width="3" stroke-linecap="round" fill="none" />
-                        <path d="M100,90 C100,80 105,80 105,70" stroke="#8a9a86" stroke-width="3" stroke-linecap="round" fill="none" />
-                        <path d="M115,90 C115,80 120,80 120,70" stroke="#8a9a86" stroke-width="3" stroke-linecap="round" fill="none" />
-                        <rect x="55" y="130" width="90" height="6" rx="3" fill="#8a9a86" />
-                    </svg>
+                    <img src="https://unsplash.com" alt="Personas conversando en un café">
                 </div>
             </div>
         </section>
 
-        <!-- Sección Sobre Mí -->
+        <!-- Sección Sobre Mí con Imagen de Apoyo Real -->
         <section id="sobremi">
-            <div class="info-box split-section" style="border-left-color: var(--primario);">
+            <div class="info-box split-section">
                 <div class="split-img">
-                    <!-- Ilustración Vectorial Integrada - Dos personas conectando -->
+                    <img src="https://unsplash.com" alt="Persona escribiendo en una libreta en ambiente tranquilo">
+                </div>
+                <div class="split-text">
+                    <h2>Quién soy y mi capacidad de escucha</h2>
+                    <p>No busco darte lecciones de vida ni soluciones médicas. Mi gran vocación es **saber escuchar de verdad**. Tengo una enorme capacidad para conectar de forma empática con las personas, acompañarte en tus días difíciles y charlar con la misma confianza que lo harías con un gran amigo.</p>
